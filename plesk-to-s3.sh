@@ -113,7 +113,6 @@ if [ ! $RET -eq 0 ];then
 	echo "[!] Error accessing S3.. exiting. $(date)"
 	exit 1
 fi
-#find /var/lib/psa/ -name main_*$BKTIMESTAMP* -exec dirname {} \; | sort | uniq
 ARCHIVELS=$(s3cmd ls -l s3://$BUCKETNAME/backup/$ARCHIVENAME/)
 RET=$?
 if [ ! $RET -eq 0 ];then

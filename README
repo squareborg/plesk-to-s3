@@ -5,7 +5,7 @@ This is a simple script that will copy the latest server backup from Plesk 12 an
 
 Setup
 -----
-To setup follow the instructions in INSTALL
+To setup follow the instructions in INSTALLL.
 
 How to restore from an S3 backup
 --------------------------------
