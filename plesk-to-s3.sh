@@ -7,33 +7,11 @@
 #
 # hypersrv.com | Web at scale solutions
 #
-# plesk-to-s3.sh Stephen Martin <sm@hypersrv.com>
+# plesk-to-s3.sh Steve Martin <sm@hypersrv.com>
 # ------------------------------------------
 # Script to backup plesk backups to amazon s3
 # 
-# Copyright (c) 2015, Stephen Martin <sm@hypersrv.com>
-# All rights reserved. 
-
-# Redistribution and use in source and binary forms, with or without 
-# modification, are permitted provided that the following conditions are met: 
-
-#  * Redistributions of source code must retain the above copyright notice, 
-#    this list of conditions and the following disclaimer. 
-#  * Redistributions in binary form must reproduce the above copyright 
-#    notice, this list of conditions and the following disclaimer in the 
-#    documentation and/or other materials provided with the distribution. 
-
-# THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND ANY 
-# EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-# WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
-# DISCLAIMED. IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE FOR ANY 
-# DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES 
-# (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR 
-# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
-# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT 
-# LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY 
-# OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH 
-# DAMAGE. 
+# Copyright 2015 Stephen Martin <sm@hypersrv.com>
 
 usage (){
 cat << EOF
@@ -85,7 +63,7 @@ fi
 			
 echo "============================================="
 echo "[+] Starting backup $(date)"
-TMPSTAGE=/root/hypersrv.com/plesk-to-s3/tmp
+TMPSTAGE=/root/tmp
 #clean up old tmp
 echo "[+] Cleaning up old tmp files"
 rm -rf $TMPSTAGE
@@ -94,6 +72,12 @@ BKTIMESTAMP=$(basename $(ls -t /var/lib/psa/dumps/"$PREFIX"_*.xml | head -n 1) |
 echo "[+] Latest time stamp: $BKTIMESTAMP"
 BKFILES=$(find /var/lib/psa/ -type f -name "$PREFIX"_*$BKTIMESTAMP*)
 BKDIRS=$(find /var/lib/psa/ -name "$PREFIX"_*$BKTIMESTAMP* -exec dirname {} \; | sort | uniq)
+if [ -d /var/lib/psa/dumps/.discovered ];then
+	BKDISCOVERED=$(find /var/lib/psa/dumps/.discovered -type d -name "$PREFIX"_*$BKTIMESTAMP* | sort | uniq)
+else
+	BKDISCOVERED=""
+fi
+BKDOMAINDISCOVERED=$(find /var/lib/psa/dumps/domains/*/.discovered -type d -name "$PREFIX"_*$BKTIMESTAMP* | sort | uniq)
 for d in $BKDIRS
 do
         if [ ! -d "$TMPSTAGE"$d ]; then
@@ -101,7 +85,7 @@ do
         mkdir -p  "$TMPSTAGE"$d
         fi
 done
-for f in $BKFILES
+for f in {$BKFILES,$BKDISCOVERED,$BKDOMAINDISCOVERED}
 do
         ln -s $f $TMPSTAGE/$f
 done
