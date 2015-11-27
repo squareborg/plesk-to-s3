@@ -17,7 +17,12 @@ Copy to your plesk server to the /var/lib/psa/dumps/ folder, you should then acc
 
 # To restore one subscription:
 
-Download the subscription folder from S3 inside the backup with the date you want to restore from eg. /mybucket/backup/daily/1511241645/dumps/domains/test.com
+Download the entire first level of the backup you want to restore eg.  /mybucket/backup/daily/1511241645/dumps/* excluding the domains folder
 
-Copy the downloaded folder back to /var/lib/psa/dumps/domains/, you should the access the sucscription and then from the subsctiption choose backup manager and you will see the backup avalailable in the list.
+Download the subscription folder from the domains folder inside the backup with the date you want to restore from eg. /mybucket/backup/daily/1511241645/dumps/domains/test.com
+
+
+Copy the downloaded folders back to /var/lib/psa/dumps/ 
+
+You can now use the server backup manager to restore the backup
 
