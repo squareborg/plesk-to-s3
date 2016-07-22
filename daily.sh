@@ -43,7 +43,7 @@
 
 # Config
 EMAIL="" # Email address to report to eg, "sm@hypersrv.com,email@hypersrv.com
-PREFIX="backup" # Prefix of backups in plesk manager. eg. main this is always "backup" in plesk 12.5
+PREFIX="backup" # Prefix of backups in plesk manager in plesk 12 you could choose a backup name but now in 12.5 the prefix will always be "backup".
 KEEP=14 # The amount of backups to Keep on S3
 AWS_ACCESS_KEY_ID="" #  The AWS access key ID
 AWS_ACCESS_KEY_SECRET="" # The AWS access key secret

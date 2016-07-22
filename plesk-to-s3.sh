@@ -1,10 +1,17 @@
 #!/bin/bash
+# _                               
+#| |_ _ _ ___ ___ ___ ___ ___ _ _ 
+#|   | | | . | -_|  _|_ -|  _| | |
+#|_|_|_  |  _|___|_| |___|_|  \_/ 
+#    |___|_|                      
 #
-# plesk-to-s3.sh Stephen Martin <sudormminusrf (at) gmail.com>
+# hypersrv.com | Web at scale solutions
+#
+# plesk-to-s3.sh Stephen Martin <sm@hypersrv.com>
 # ------------------------------------------
 # Script to backup plesk backups to amazon s3
 # 
-# Copyright (c) 2015, Stephen Martin <sudormminusrf (at) gmail.com>
+# Copyright (c) 2015, Stephen Martin <sm@hypersrv.com>
 # All rights reserved. 
 
 # Redistribution and use in source and binary forms, with or without 
@@ -26,7 +33,7 @@
 # CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT 
 # LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY 
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH 
-# DAMAGE. 
+# DAMAGE.
 
 
 usage (){
