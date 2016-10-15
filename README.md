@@ -1,3 +1,7 @@
+![Plesk to S3](https://www.hypersrv.com/static/images/PlesktoS3_logo.png)
+
+Commercial support available at [Hypersrv](https://www.hypersrv.com/plesk-backup-to-S3)
+
 Intro
 -----
 This is a simple script.  It has been designed to use cron jobs to schedule backups of your plesk server backups to Amazon S3. It will also allow for multiple retention policy eg. 14 daily's and 12 monthly's.
