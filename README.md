@@ -1,6 +1,11 @@
-![Plesk to S3](https://www.hypersrv.com/static/images/PlesktoS3_logo.png)
+![Plesk to S3](https://hypersrvstaticly.s3.amazonaws.com/images/PlesktoS3_logo.png)
 
 Commercial support available at [Hypersrv](https://www.hypersrv.com/plesk-backup-to-S3)
+
+### Tested on
+* Plesk 12
+* Plesk 12.5
+* Plesk Onyx 17.5.3 Update #38
 
 Intro
 -----
