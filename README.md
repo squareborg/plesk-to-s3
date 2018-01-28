@@ -93,9 +93,15 @@ Add the below to the crontab file, change the times to **after** your Plesk back
 ## To restore the whole server:
 
 Download the entire "dumps" folder from S3 with the correct date eg. /mybucket/backup/daily/1511241645/dumps ( for 11 November 2015 @ 16:45)
-Copy to your plesk server to the /var/lib/psa/dumps/ folder, choose overwrite if prompted. You should then access the plesk backup manager and see the entire backup available.
+Copy to your plesk server to the /var/lib/psa/dumps/ folder, choose overwrite if prompted. 
 
-You can do this using `s3cmd` like this `s3cmd -v sync s3://plesktos3/backup/daily/1801271748/dumps/ /var/lib/psa/dumps/`
+You can do this using `s3cmd` like this 
+
+`s3cmd -v sync s3://plesktos3/backup/daily/1801271748/dumps/ /var/lib/psa/dumps/`
+
+You should then access the plesk backup manager and see the entire backup available.
+
+
 
 ## To restore one subscription:
 
