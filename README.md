@@ -11,7 +11,7 @@ Intro
 -----
 This is a simple script.  It has been designed to use cron jobs to schedule backups of your plesk server backups to Amazon S3. It will also allow for multiple retention policy eg. 14 daily's and 12 monthly's.
 
-**WARNING** This only works for Plesks's *full* backups, it will not work for incremental backups. I have tested with Plesk 12 and 12.5 on CentOS 6 and have been able to successfully restore backups. You should also test that you can restore your backups ( you should do this anyway )
+**WARNING** This only works for Plesks's *full* backups, it will not work for incremental backups. Always test your backups.
 
 When your crontab runs it will copy the latest backup it can find on your plesk server and upload it to an S3 bucket of your choosing. This script does not schedule the actual backups of Plesk but merely copies the backups that the built in Plesk backup manager runs and puts them on S3
 
