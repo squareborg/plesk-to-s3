@@ -1,6 +1,4 @@
-![Plesk to S3](https://hypersrvstaticly.s3.amazonaws.com/images/PlesktoS3_logo.png)
-
-Commercial support available at [Hypersrv](https://www.hypersrv.com/plesk-backup-to-S3)
+# Discontinued, un-maintained Plesk now has its own S3 sync
 
 ### Tested on
 * Plesk 12
